@@ -19,7 +19,7 @@ export function Experience() {
       {/* Decorative timeline graphic elements */}
       <div className="absolute right-0 top-1/4 w-80 h-80 bg-[#F27D26]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
         
         {/* Section Heading Panel */}
         <div id="experience-heading" className="flex flex-col items-center text-center mb-16">
@@ -54,22 +54,23 @@ export function Experience() {
         <div id="timeline-tabs" className="flex items-center justify-center gap-2 mb-16">
           {(['all', 'work', 'education'] as const).map((tab) => (
             <button
-              key={tab}
-              id={`timeline-tab-${tab}`}
-              onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2.5 rounded-full text-xs font-mono font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
-                activeTab === tab
-                  ? 'bg-[#F27D26] text-black font-extrabold shadow-md shadow-[#F27D26]/20'
-                  : 'bg-[#121212] text-[#A1A1AA] hover:text-white border border-white/5'
-              }`}
+               key={tab}
+               id={`timeline-tab-${tab}`}
+               onClick={() => setActiveTab(tab)}
+               className={`px-5 py-2.5 rounded-full text-xs font-mono font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
+                 activeTab === tab
+                   ? 'bg-[#F27D26] text-black font-extrabold shadow-md shadow-[#F27D26]/20'
+                   : 'bg-[#121212] text-[#A1A1AA] hover:text-white border border-white/5'
+               }`}
             >
               {tab.toUpperCase()}
             </button>
           ))}
         </div>
 
-        {/* Timeline main container track */}
-        <div className="relative border-l-2 border-white/10 pl-6 sm:pl-10 ml-3 sm:ml-6 space-y-12">
+        {/* Timeline main container track centered and sized nicely */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative border-l-2 border-white/10 pl-6 sm:pl-10 ml-3 sm:ml-6 space-y-12">
           {filteredItems.map((item, idx) => {
             const isWork = item.type === 'work';
             const Icon = isWork ? Briefcase : GraduationCap;
@@ -151,6 +152,7 @@ export function Experience() {
             );
           })}
         </div>
+      </div>
 
       </div>
     </section>

@@ -94,7 +94,7 @@ export function Contact() {
       {/* Dynamic background element orbs */}
       <div className="absolute left-1/4 top-1/3 w-96 h-96 bg-[#F27D26]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
         
         {/* Section Heading Panel */}
         <div id="contact-heading" className="flex flex-col items-center text-center mb-16">

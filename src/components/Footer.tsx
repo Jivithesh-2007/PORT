@@ -14,7 +14,7 @@ export function Footer() {
       id="portfolio-footer"
       className="bg-[#050505] border-t border-white/5 py-12 md:py-16 px-6 md:px-12"
     >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-16 lg:px-24">
         
         {/* Brand visual panel */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">

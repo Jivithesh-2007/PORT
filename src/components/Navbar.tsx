@@ -89,7 +89,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
           : 'bg-transparent py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 flex items-center justify-between">
         {/* Logo */}
         <button
           id="nav-logo-btn"

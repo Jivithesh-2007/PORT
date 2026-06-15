@@ -1,13 +1,13 @@
 import { motion } from 'motion/react';
-import { Award, Zap, Code, ShieldCheck } from 'lucide-react';
+import { Award, Code, GraduationCap, Briefcase } from 'lucide-react';
 import { personalInfo } from '../data';
 
 export function About() {
   const stats = [
-    { value: "06+", label: "Years Experience", icon: Award, color: "text-[#F27D26]" },
-    { value: "35+", label: "Completed Projects", icon: Zap, color: "text-amber-500" },
-    { value: "50k+", label: "Lines of Code", icon: Code, color: "text-orange-400" },
-    { value: "100%", label: "Client Satisfaction", icon: ShieldCheck, color: "text-[#F27D26]" },
+    { value: "9.32", label: "Academic Grade (CGPA)", icon: GraduationCap, color: "text-[#F27D26]" },
+    { value: "3+", label: "Completed Internships", icon: Briefcase, color: "text-amber-500" },
+    { value: "10+", label: "Innovative Projects", icon: Code, color: "text-orange-400" },
+    { value: "46", label: "Earned Credentials", icon: Award, color: "text-[#F27D26]" },
   ];
 
   return (
@@ -15,7 +15,7 @@ export function About() {
       id="about"
       className="relative py-24 sm:py-32 px-6 md:px-12 bg-[#050505] border-t border-white/5 transition-colors duration-1000 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
         
         {/* Section Heading Panel */}
         <div id="about-heading" className="flex flex-col items-center text-center mb-20">
@@ -70,22 +70,25 @@ export function About() {
                   id="portrait-img"
                   src={personalInfo.avatar}
                   alt={personalInfo.name}
-                  className="w-full h-full object-cover object-center grayscale hover:grayscale-0 scale-100 group-hover:scale-108 transition-all duration-700 pointer-events-none"
+                  className="w-full h-full object-cover object-center scale-100 group-hover:scale-108 transition-all duration-700 pointer-events-none"
                   referrerPolicy="no-referrer"
                 />
                 
                 {/* Visual Glassmorphic overlay */}
                 <div 
                   id="portrait-glass-caption"
-                  className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-[#121212]/85 backdrop-blur-md border border-white/10 text-white shadow-lg"
+                  className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-[#121212]/90 backdrop-blur-md border border-white/10 text-white shadow-lg"
                 >
-                  <p className="font-mono text-xs text-[#F27D26] font-semibold uppercase tracking-wider mb-1">
-                    System Operator
-                  </p>
-                  <p className="font-serif font-bold text-lg leading-tight">
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="font-mono text-[8px] text-emerald-400 font-bold uppercase tracking-widest">
+                      Available for Opportunities
+                    </span>
+                  </div>
+                  <p className="font-serif font-black text-base leading-tight">
                     {personalInfo.name}
                   </p>
-                  <p className="font-mono text-[10px] text-zinc-400 mt-2">
+                  <p className="font-mono text-[9px] text-zinc-400 mt-2">
                     IP: 142.250.190.46 // PROTOCOL: TRUE
                   </p>
                 </div>
@@ -100,9 +103,9 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-2xl sm:text-3xl font-serif font-extrabold text-white tracking-tight"
+              className="text-2xl sm:text-3xl font-serif font-extrabold text-white tracking-tight leading-tight"
             >
-              Solving logical architectures with <span className="text-[#F27D26] italic">impeccable</span> design standards.
+              Full Stack Developer & <span className="text-[#F27D26] italic">Robotics Enthusiast</span>.
             </motion.h3>
 
             <motion.p
@@ -112,7 +115,7 @@ export function About() {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="mt-6 text-zinc-300 leading-relaxed text-base font-sans"
             >
-              My journey began as a frontend enthusiast exploring vector graphic interfaces and scripting layout macros. Over the years, that curiosity matured into full-stack orchestration expertise. I specialize in designing and engineering high-load, visually captivating user experiences.
+              I am an undergraduate Computer Science and Engineering student at Karunya Institute of Technology & Sciences, motivated by a genuine passion for full-stack web applications, machine learning models, and building autonomous intelligent systems.
             </motion.p>
             
             <motion.p
@@ -122,7 +125,7 @@ export function About() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="mt-4 text-zinc-300 leading-relaxed text-base font-sans"
             >
-              Beyond coding, I have a deep affinity for micro-motion and web graphics rendering (WebGL/Shaders). I believe digital actions should possess kinetic weight and tactile friction — mirroring natural materials to increase user delight and focus.
+              Continuously building expertise in robust backend workflows, responsive interface designs, and low-level C programming. Striving to merge high-velocity computational power with fluid user experiences, bridging physical robotics intelligence with modern digital architectures.
             </motion.p>
 
             {/* Micro Stats Bento-style layout */}

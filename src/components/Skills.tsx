@@ -21,7 +21,7 @@ export function Skills() {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#F27D26]/5 rounded-full blur-3xl pointer-events-none"
       />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
         
         {/* Section Heading Panel */}
         <div id="skills-heading" className="flex flex-col items-center text-center mb-20">

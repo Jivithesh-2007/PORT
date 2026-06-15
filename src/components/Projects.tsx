@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, Github, X, ArrowUpRight, ArrowRight, Layers } from 'lucide-react';
+import { ExternalLink, Github, X, ArrowUpRight, ArrowRight, Layers, Cpu, Server, Code2, Terminal } from 'lucide-react';
 import { projects } from '../data';
 import { Project } from '../types';
 
@@ -9,13 +9,23 @@ export function Projects() {
   const [activeFilter, setActiveFilter] = useState('All');
 
   // Filter categories helper
-  const filterCategories = ['All', 'SaaS', 'Web3', 'Interactive'];
+  const filterCategories = ['All', 'Fullstack', 'AI & Robotics', 'Frontend'];
 
   const filteredProjects = projects.filter((project) => {
     if (activeFilter === 'All') return true;
-    if (activeFilter === 'SaaS') return project.category.toLowerCase().includes('saas');
-    if (activeFilter === 'Web3') return project.category.toLowerCase().includes('web3') || project.category.toLowerCase().includes('fintech');
-    if (activeFilter === 'Interactive') return project.category.toLowerCase().includes('interactive');
+    if (activeFilter === 'Fullstack') {
+      return project.category.toLowerCase().includes('fullstack') || project.category.toLowerCase().includes('saas');
+    }
+    if (activeFilter === 'AI & Robotics') {
+      return (
+        project.category.toLowerCase().includes('ai') || 
+        project.category.toLowerCase().includes('robot') || 
+        project.category.toLowerCase().includes('algorithmic')
+      );
+    }
+    if (activeFilter === 'Frontend') {
+      return project.category.toLowerCase().includes('frontend') || project.category.toLowerCase().includes('ui');
+    }
     return true;
   });
 
@@ -24,7 +34,7 @@ export function Projects() {
       id="projects"
       className="relative py-24 sm:py-32 px-6 md:px-12 bg-[#050505] border-t border-white/5 transition-colors duration-1000"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
         
         {/* Section Heading Panel */}
         <div id="projects-heading" className="flex flex-col items-center text-center mb-16">
@@ -77,9 +87,9 @@ export function Projects() {
         <motion.div
           layout
           id="projects-grid"
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="popLayout text-sans">
             {filteredProjects.map((project, idx) => (
               <motion.div
                 layout
@@ -90,59 +100,59 @@ export function Projects() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
-                className="group relative rounded-3xl overflow-hidden bg-[#121212] border border-white/5 transition-all duration-300 cursor-pointer flex flex-col h-full"
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
+                }}
+                className="p-8 rounded-3xl bg-[#0d0d0d] border border-white/5 relative group flex flex-col justify-between transition-all duration-300 hover:border-[#F27D26]/25 cursor-pointer h-full"
                 onClick={() => setSelectedProject(project)}
               >
-                {/* Visual Glass Header overlay containing Category */}
-                <div id="project-card-badge" className="absolute top-5 left-5 z-20 px-3.5 py-1.5 rounded-xl bg-[#121212]/85 backdrop-blur-md border border-white/10 text-[10px] font-mono font-bold text-[#F27D26] uppercase tracking-widest shadow-sm">
-                  {project.category}
-                </div>
-
-                {/* Aspect Ratio Image Container */}
-                <div id="project-card-image-box" className="relative aspect-[16/10] overflow-hidden bg-slate-950">
-                  <div className="absolute inset-0 bg-slate-950/20 z-10 group-hover:bg-slate-950/10 transition-colors" />
-                  <img
-                    id={`project-thumb-${project.id}`}
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
-                    referrerPolicy="no-referrer"
-                  />
-                  
-                  {/* Subtle live hover preview indicator panel */}
-                  <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-slate-950/70 to-transparent z-15 flex items-end justify-between translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <span className="text-white/90 text-xs font-mono font-medium tracking-wide flex items-center gap-1.5">
-                      <Layers className="w-3.5 h-3.5" /> EXPLORE SPECIFICATION
-                    </span>
-                    <div className="p-2 rounded-full bg-[#F27D26] text-black shadow">
-                      <ArrowUpRight className="w-4 h-4" />
-                    </div>
+                {/* Micro bento style header top row */}
+                <div className="flex items-start justify-between mb-8">
+                  <div className="p-3 rounded-2xl bg-[#050505] border border-white/5 shadow-sm text-[#F27D26] group-hover:scale-110 group-hover:text-black group-hover:bg-[#F27D26] transition-all duration-300">
+                    {project.category.toLowerCase().includes('robot') || project.category.toLowerCase().includes('ai') ? (
+                      <Cpu className="w-5 h-5" />
+                    ) : project.category.toLowerCase().includes('fullstack') ? (
+                      <Server className="w-5 h-5" />
+                    ) : project.category.toLowerCase().includes('frontend') ? (
+                      <Code2 className="w-5 h-5" />
+                    ) : (
+                      <Terminal className="w-5 h-5" />
+                    )}
+                  </div>
+                  <div className="flex items-center gap-1 text-zinc-500 group-hover:text-[#F27D26] transition-colors">
+                    <span className="font-mono text-[9px] tracking-widest font-bold uppercase hidden sm:inline">SPEC_0{idx + 1} //</span>
+                    <ArrowUpRight className="w-4.5 h-4.5" />
                   </div>
                 </div>
 
-                {/* Info and Tag Details Footer */}
-                <div className="p-8 flex-1 flex flex-col justify-between">
+                {/* Main metadata content layout */}
+                <div className="flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-sans font-extrabold text-white tracking-tight group-hover:text-[#F27D26] duration-300">
+                    <span className="font-mono text-[10px] text-[#F27D26] font-bold tracking-widest block mb-1.5 uppercase">
+                      {project.category}
+                    </span>
+                    <h3 className="text-lg font-sans font-extrabold text-white tracking-tight leading-snug mb-3 group-hover:text-[#F27D26] transition-colors line-clamp-2 md:min-h-[56px]">
                       {project.title}
                     </h3>
-                    <p className="mt-2 text-sm text-zinc-400 line-clamp-2">
+                    <p className="text-zinc-400 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-6">
                       {project.description}
                     </p>
                   </div>
 
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  {/* Tech specs tag strip */}
+                  <div className="mt-4 pt-4 border-t border-white/10 flex flex-wrap gap-1.5 overflow-hidden">
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-lg bg-zinc-800 text-[11px] font-mono font-medium text-zinc-400"
+                        className="px-2 py-0.5 rounded bg-white/[0.02] border border-white/5 text-[10px] font-mono text-zinc-400"
                       >
                         {tag}
                       </span>
                     ))}
                     {project.tags.length > 3 && (
-                      <span className="px-2.5 py-1 rounded-lg bg-[#F27D26]/12 text-[#F27D26] text-[11px] font-mono font-medium">
-                        +{project.tags.length - 3} more
+                      <span className="px-2 py-0.5 rounded bg-gradient-to-r from-amber-600/10 to-[#F27D26]/10 border border-[#F27D26]/10 text-[#F27D26] text-[10px] font-mono font-medium">
+                        +{project.tags.length - 3}
                       </span>
                     )}
                   </div>
@@ -188,23 +198,69 @@ export function Projects() {
                 </div>
 
                 {/* Hero banner of modal */}
-                <div className="relative aspect-[21/10] bg-slate-950">
-                  <img
-                    id="modal-hero-banner"
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80" />
-                  <div className="absolute bottom-6 left-8 right-8 text-white">
-                    <span className="font-mono text-xs text-[#F27D26] uppercase font-bold tracking-widest block mb-1">
-                      {selectedProject.category}
-                    </span>
-                    <h2 className="text-2xl sm:text-3xl font-serif font-black tracking-tight">
-                      {selectedProject.title}
-                    </h2>
-                  </div>
+                <div className="relative aspect-[21/10] bg-slate-950 overflow-hidden">
+                  {selectedProject.image ? (
+                    <>
+                      <img
+                        id="modal-hero-banner"
+                        src={selectedProject.image}
+                        alt={selectedProject.title}
+                        className="w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80" />
+                    </>
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 flex flex-col justify-between p-8 overflow-hidden border-b border-white/5">
+                      {/* Grid background effect */}
+                      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:16px_28px] pointer-events-none" />
+                      
+                      {/* Terminal-like text mock */}
+                      <div className="relative font-mono text-[9px] text-zinc-500 flex justify-between items-center z-10 border-b border-white/5 pb-2">
+                        <span>EXPLORING SPECIFICATION // {selectedProject.id.toUpperCase()}_SYSTEM</span>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 bg-[#F27D26] rounded-full animate-pulse" />
+                          <span className="text-zinc-500 font-bold uppercase tracking-wider text-[8px]">ACTIVE TELEMETRY</span>
+                        </div>
+                      </div>
+                      
+                      {/* Central abstract graphic illustration based on category */}
+                      <div className="flex-1 flex items-center gap-5 relative z-10 py-2">
+                        <div className="w-14 h-14 rounded-2xl bg-[#F27D26]/5 border border-[#F27D26]/15 flex items-center justify-center text-[#F27D26] shrink-0">
+                          {selectedProject.category.toLowerCase().includes('robot') || selectedProject.category.toLowerCase().includes('ai') ? (
+                            <Cpu className="w-7 h-7" />
+                          ) : selectedProject.category.toLowerCase().includes('fullstack') ? (
+                            <Server className="w-7 h-7" />
+                          ) : selectedProject.category.toLowerCase().includes('frontend') ? (
+                            <Code2 className="w-7 h-7" />
+                          ) : (
+                            <Terminal className="w-7 h-7" />
+                          )}
+                        </div>
+                        <div>
+                          <span className="text-[#F27D26] font-mono text-[9px] uppercase tracking-widest font-black block">{selectedProject.category}</span>
+                          <h3 className="text-xl sm:text-2xl font-serif font-black tracking-tight text-white mt-1 leading-tight">{selectedProject.title}</h3>
+                        </div>
+                      </div>
+                      
+                      {/* Bottom system status banner */}
+                      <div className="relative font-mono text-[8px] text-zinc-500 z-10 pt-2 border-t border-white/5 flex justify-between">
+                        <span>STATUS: LIVE // ENGINE: COMPILING</span>
+                        <span className="text-zinc-600 hidden sm:inline">DATA PORT: 3000 // ENCRYPTION: SECURE</span>
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent opacity-80" />
+                  {selectedProject.image && (
+                    <div className="absolute bottom-6 left-8 right-8 text-white z-10">
+                      <span className="font-mono text-xs text-[#F27D26] uppercase font-bold tracking-widest block mb-1">
+                        {selectedProject.category}
+                      </span>
+                      <h2 className="text-2xl sm:text-3xl font-serif font-black tracking-tight">
+                        {selectedProject.title}
+                      </h2>
+                    </div>
+                  )}
                 </div>
 
                 {/* Modal Detail Body */}
