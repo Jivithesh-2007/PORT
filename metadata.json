@@ -1,0 +1,6 @@
+{
+  "name": "Personal Portfolio",
+  "description": "A high-end, fully animated personal portfolio with modular sections, smooth scrolling, interactive cards, and advanced hover effects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

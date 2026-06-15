@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;850;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg-dark: #050505;
+  --color-card-dark: #121212;
+  --color-accent-orange: #F27D26;
+  --color-text-dim: #A1A1AA;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --animate-shimmer: shimmer 2.5s infinite linear;
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(180%);
+    }
+  }
+}
+
+/* Custom dot pattern overlay */
+.dot-pattern {
+  background-image: radial-gradient(rgba(242, 125, 38, 0.08) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+body.dark .dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+/* Glassmorphic Panel stylings */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dark .glass-panel {
+  background: rgba(18, 18, 18, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom scrollbar and core layout refinements */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* offset for navbar height */
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(242, 125, 38, 0.25);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(242, 125, 38, 0.5);
+}
+
+/* Base resets and micro animations */
+body {
+  background-color: #050505;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global focus states outline */
+*:focus-visible {
+  outline: 2px solid #F27D26;
+  outline-offset: 2px;
+}
