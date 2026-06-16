@@ -1,5 +1,6 @@
 import { PersonalInfo, Project, SkillGroup, ExperienceItem, Certification } from './types';
-import avatarImg from './assets/images/profile.png';
+// Use public directory for reliable asset loading
+const avatarImg = '/avatar.png';
 
 export const personalInfo: PersonalInfo = {
   name: "Jivithesh A S",
