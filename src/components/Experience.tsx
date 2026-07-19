@@ -17,7 +17,7 @@ export function Experience() {
       className="relative py-24 sm:py-32 px-6 md:px-12 bg-[#050505] border-t border-white/5 transition-colors duration-1000 overflow-hidden"
     >
       {/* Decorative timeline graphic elements */}
-      <div className="absolute right-0 top-1/4 w-80 h-80 bg-[#F27D26]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute right-0 top-1/4 w-80 h-80 bg-[slate-500]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
         
@@ -30,21 +30,21 @@ export function Experience() {
             transition={{ duration: 0.6 }}
             className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-white mb-4"
           >
-            Journey & <span className="text-[#F27D26]">Timeline</span>
+            Journey & <span className="text-[slate-500]">Timeline</span>
           </motion.h2>
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="h-1 bg-[#F27D26] rounded-full mb-6"
+            className="h-1 bg-[slate-500] rounded-full mb-6"
           />
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-sm font-mono tracking-widest text-[#F27D26] uppercase"
+            className="text-sm font-mono tracking-widest text-[slate-500] uppercase"
           >
             My education and professional background
           </motion.p>
@@ -59,7 +59,7 @@ export function Experience() {
                onClick={() => setActiveTab(tab)}
                className={`px-5 py-2.5 rounded-full text-xs font-mono font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
                  activeTab === tab
-                   ? 'bg-[#F27D26] text-black font-extrabold shadow-md shadow-[#F27D26]/20'
+                   ? 'bg-[slate-500] text-black font-extrabold shadow-md shadow-[slate-500]/20'
                    : 'bg-[#121212] text-[#A1A1AA] hover:text-white border border-white/5'
                }`}
             >
@@ -88,20 +88,20 @@ export function Experience() {
                 {/* Timeline node icon */}
                 <div id={`timeline-dot-${item.id}`} className={`absolute -left-[45px] sm:-left-[61px] top-1 w-10 h-10 rounded-full border-2 border-white/10 flex items-center justify-center transition-all duration-300 ${
                   isWork 
-                    ? 'bg-[#1a1a1a] text-[#F27D26] group-hover:border-[#F27D26]' 
-                    : 'bg-[#1a1a1a] text-amber-500 group-hover:border-amber-500'
+                    ? 'bg-[#1a1a1a] text-[slate-500] group-hover:border-[slate-500]' 
+                    : 'bg-[#1a1a1a] text-slate-500 group-hover:border-slate-500'
                 }`}>
                   <Icon className="w-4 h-4" />
                 </div>
 
                 {/* Info Card Layout */}
-                <div className="p-6 sm:p-8 rounded-3xl bg-[#121212] border border-white/5 shadow-sm hover:shadow-md transition-all duration-300 group-hover:border-[#F27D26]/10">
+                <div className="p-6 sm:p-8 rounded-3xl bg-[#121212] border border-white/5 shadow-sm hover:shadow-md transition-all duration-300 group-hover:border-[slate-500]/10">
                   {/* Meta tag label */}
                   <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                     <span className={`px-3 py-1 rounded-lg text-[10px] font-mono font-bold tracking-widest uppercase ${
                       isWork 
-                        ? 'bg-[#F27D26]/12 text-[#F27D26]' 
-                        : 'bg-amber-500/12 text-amber-400'
+                        ? 'bg-[slate-500]/12 text-[slate-500]' 
+                        : 'bg-slate-500/12 text-slate-400'
                     }`}>
                       {item.type}
                     </span>
@@ -114,7 +114,7 @@ export function Experience() {
                   </div>
 
                   {/* Role Title */}
-                  <h3 className="text-xl font-sans font-black tracking-tight text-white mb-1.5 transition-colors group-hover:text-[#F27D26] duration-300">
+                  <h3 className="text-xl font-sans font-black tracking-tight text-white mb-1.5 transition-colors group-hover:text-[slate-500] duration-300">
                     {item.role}
                   </h3>
 
@@ -141,7 +141,7 @@ export function Experience() {
                         id={`timeline-bullet-${item.id}-${kIdx}`}
                         className="flex items-start gap-3 text-sm text-zinc-300 leading-relaxed"
                       >
-                        <ChevronRight className="w-4 h-4 text-[#F27D26] shrink-0 mt-0.5 group-hover:translate-x-0.5 transition-transform" />
+                        <ChevronRight className="w-4 h-4 text-[slate-500] shrink-0 mt-0.5 group-hover:translate-x-0.5 transition-transform" />
                         <span>{bullet}</span>
                       </li>
                     ))}

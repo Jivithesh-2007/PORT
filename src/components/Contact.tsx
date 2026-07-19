@@ -92,7 +92,7 @@ export function Contact() {
       className="relative py-24 sm:py-32 px-6 md:px-12 bg-[#050505] border-t border-white/5 transition-colors duration-1000 overflow-hidden"
     >
       {/* Dynamic background element orbs */}
-      <div className="absolute left-1/4 top-1/3 w-96 h-96 bg-[#F27D26]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute left-1/4 top-1/3 w-96 h-96 bg-[slate-500]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
         
@@ -105,21 +105,21 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-white mb-4"
           >
-            Get In <span className="text-[#F27D26]">Touch</span>
+            Get In <span className="text-[slate-500]">Touch</span>
           </motion.h2>
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="h-1 bg-[#F27D26] rounded-full mb-6"
+            className="h-1 bg-[slate-500] rounded-full mb-6"
           />
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-sm font-mono tracking-widest text-[#F27D26] uppercase"
+            className="text-sm font-mono tracking-widest text-[slate-500] uppercase"
           >
             LET'S DISCUSS COLLABORATION & PIPELINES
           </motion.p>
@@ -138,7 +138,7 @@ export function Contact() {
             className="lg:col-span-4 space-y-8"
           >
             <div>
-              <span className="font-mono text-[#F27D26] font-bold text-xs tracking-widest uppercase block mb-1">
+              <span className="font-mono text-[slate-500] font-bold text-xs tracking-widest uppercase block mb-1">
                 CONTACT DETAILS
               </span>
               <h3 className="text-2xl font-sans font-black text-white tracking-tight leading-tight">
@@ -151,8 +151,8 @@ export function Contact() {
 
             {/* Quick text channels */}
             <div className="space-y-4">
-              <div id="contact-ch-email" className="p-5 rounded-2xl bg-[#121212] border border-white/5 flex items-center gap-4 hover:border-[#F27D26]/12 transition-all">
-                <div className="p-3 rounded-xl bg-[#F27D26]/12 text-[#F27D26]">
+              <div id="contact-ch-email" className="p-5 rounded-2xl bg-[#121212] border border-white/5 flex items-center gap-4 hover:border-[slate-500]/12 transition-all">
+                <div className="p-3 rounded-xl bg-[slate-500]/12 text-[slate-500]">
                   <Mail className="w-4.5 h-4.5" />
                 </div>
                 <div className="overflow-hidden">
@@ -161,7 +161,7 @@ export function Contact() {
                   </h4>
                   <a
                     href={`mailto:${personalInfo.socials.email}`}
-                    className="text-sm sm:text-base font-semibold text-zinc-200 hover:text-[#F27D26] block truncate transition-colors"
+                    className="text-sm sm:text-base font-semibold text-zinc-200 hover:text-[slate-500] block truncate transition-colors"
                   >
                     {personalInfo.socials.email}
                   </a>
@@ -192,7 +192,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-8 p-8 sm:p-10 rounded-3xl bg-[#121212] border border-white/5 hover:shadow-lg transition-all duration-350 hover:border-[#F27D26]/15"
+            className="lg:col-span-8 p-8 sm:p-10 rounded-3xl bg-[#121212] border border-white/5 hover:shadow-lg transition-all duration-350 hover:border-[slate-500]/15"
           >
             <AnimatePresence mode="wait">
               {!submitSuccess ? (
@@ -217,10 +217,10 @@ export function Contact() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full px-5 py-3.5 rounded-xl border bg-[#050505] text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#F27D26]/10 focus:bg-[#050505] transition-all ${
+                        className={`w-full px-5 py-3.5 rounded-xl border bg-[#050505] text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[slate-500]/10 focus:bg-[#050505] transition-all ${
                           errors.name 
                             ? 'border-rose-500' 
-                            : 'border-white/5 hover:border-white/20 focus:border-[#F27D26]/40'
+                            : 'border-white/5 hover:border-white/20 focus:border-[slate-500]/40'
                         }`}
                         placeholder="John Doe"
                       />
@@ -242,10 +242,10 @@ export function Contact() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-5 py-3.5 rounded-xl border bg-[#050505] text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#F27D26]/10 focus:bg-[#050505] transition-all ${
+                        className={`w-full px-5 py-3.5 rounded-xl border bg-[#050505] text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[slate-500]/10 focus:bg-[#050505] transition-all ${
                           errors.email 
                             ? 'border-rose-500' 
-                            : 'border-white/5 hover:border-white/20 focus:border-[#F27D26]/40'
+                            : 'border-white/5 hover:border-white/20 focus:border-[slate-500]/40'
                         }`}
                         placeholder="hello@domain.com"
                       />
@@ -268,10 +268,10 @@ export function Contact() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className={`w-full px-5 py-3.5 rounded-xl border bg-[#050505] text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#F27D26]/10 focus:bg-[#050505] transition-all ${
+                      className={`w-full px-5 py-3.5 rounded-xl border bg-[#050505] text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[slate-500]/10 focus:bg-[#050505] transition-all ${
                         errors.subject 
                           ? 'border-rose-500' 
-                          : 'border-white/5 hover:border-white/20 focus:border-[#F27D26]/40'
+                          : 'border-white/5 hover:border-white/20 focus:border-[slate-500]/40'
                       }`}
                       placeholder="Project launch engagement details..."
                     />
@@ -293,10 +293,10 @@ export function Contact() {
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      className={`w-full px-5 py-4 rounded-xl border bg-[#050505] text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#F27D26]/10 focus:bg-[#050505] transition-all resize-none ${
+                      className={`w-full px-5 py-4 rounded-xl border bg-[#050505] text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[slate-500]/10 focus:bg-[#050505] transition-all resize-none ${
                         errors.message 
                           ? 'border-rose-500' 
-                          : 'border-white/5 hover:border-white/20 focus:border-[#F27D26]/40'
+                          : 'border-white/5 hover:border-white/20 focus:border-[slate-500]/40'
                       }`}
                       placeholder="Hi Jivithesh, I would love to partner on designing..."
                     />
@@ -312,7 +312,7 @@ export function Contact() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 rounded-xl bg-[#F27D26] hover:bg-[#F27D26]/90 text-black font-extrabold text-sm flex items-center justify-center gap-2 group transition-all duration-300 shadow-lg shadow-[#F27D26]/10 cursor-pointer disabled:opacity-80 focus:ring-2 focus:ring-[#F27D26]/25"
+                      className="w-full py-4 rounded-xl bg-[slate-500] hover:bg-[slate-500]/90 text-black font-extrabold text-sm flex items-center justify-center gap-2 group transition-all duration-300 shadow-lg shadow-[slate-500]/10 cursor-pointer disabled:opacity-80 focus:ring-2 focus:ring-[slate-500]/25"
                     >
                       {isSubmitting ? (
                         <>
@@ -343,12 +343,12 @@ export function Contact() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', damping: 15 }}
-                    className="p-4 rounded-full bg-[#F27D26]/12 text-[#F27D26] mb-6 border border-[#F27D26]/20"
+                    className="p-4 rounded-full bg-[slate-500]/12 text-[slate-500] mb-6 border border-[slate-500]/20"
                   >
                     <CheckCircle className="w-12 h-12" />
                   </motion.div>
                   
-                  <span className="font-mono text-xs font-semibold text-[#F27D26] tracking-widest uppercase block mb-2">
+                  <span className="font-mono text-xs font-semibold text-[slate-500] tracking-widest uppercase block mb-2">
                     TRANSMISSION BROADCAST SUCCESSFUL
                   </span>
                   <h3 className="text-2xl font-sans font-black text-white tracking-tight mb-3">

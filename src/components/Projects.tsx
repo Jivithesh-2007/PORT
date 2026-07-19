@@ -45,23 +45,23 @@ export function Projects() {
             transition={{ duration: 0.6 }}
             className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-white mb-4"
           >
-            Digital <span className="text-[#F27D26]">Creations</span>
+            My <span className="text-slate-400">Projects</span>
           </motion.h2>
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="h-1 bg-[#F27D26] rounded-full mb-6"
+            className="h-1 bg-slate-500 rounded-full mb-6"
           />
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-sm font-mono tracking-widest text-[#F27D26] uppercase"
+            className="text-sm font-mono tracking-widest text-slate-400 uppercase"
           >
-            CRAFTED WITH PRECISION AND FLUID OPTIMIZATION
+            BUILT WITH PASSION AND DEDICATION
           </motion.p>
         </div>
 
@@ -74,7 +74,7 @@ export function Projects() {
               onClick={() => setActiveFilter(cat)}
               className={`px-5 py-2.5 rounded-full text-xs font-mono font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
                 activeFilter === cat
-                  ? 'bg-[#F27D26] text-black font-extrabold shadow-md shadow-[#F27D26]/20'
+                  ? 'bg-slate-500 text-white font-extrabold shadow-md shadow-slate-500/20'
                   : 'bg-[#121212] text-[#A1A1AA] hover:text-white border border-white/5'
               }`}
             >
@@ -104,12 +104,12 @@ export function Projects() {
                   y: -5,
                   boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
                 }}
-                className="p-8 rounded-3xl bg-[#0d0d0d] border border-white/5 relative group flex flex-col justify-between transition-all duration-300 hover:border-[#F27D26]/25 cursor-pointer h-full"
+                className="p-8 rounded-3xl bg-[#0d0d0d] border border-white/5 relative group flex flex-col justify-between transition-all duration-300 hover:border-slate-500/25 cursor-pointer h-full"
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Micro bento style header top row */}
                 <div className="flex items-start justify-between mb-8">
-                  <div className="p-3 rounded-2xl bg-[#050505] border border-white/5 shadow-sm text-[#F27D26] group-hover:scale-110 group-hover:text-black group-hover:bg-[#F27D26] transition-all duration-300">
+                  <div className="p-3 rounded-2xl bg-[#050505] border border-white/5 shadow-sm text-slate-400 group-hover:scale-110 group-hover:text-white group-hover:bg-slate-500 transition-all duration-300">
                     {project.category.toLowerCase().includes('robot') || project.category.toLowerCase().includes('ai') ? (
                       <Cpu className="w-5 h-5" />
                     ) : project.category.toLowerCase().includes('fullstack') ? (
@@ -120,7 +120,7 @@ export function Projects() {
                       <Terminal className="w-5 h-5" />
                     )}
                   </div>
-                  <div className="flex items-center gap-1 text-zinc-500 group-hover:text-[#F27D26] transition-colors">
+                  <div className="flex items-center gap-1 text-zinc-500 group-hover:text-slate-400 transition-colors">
                     <span className="font-mono text-[9px] tracking-widest font-bold uppercase hidden sm:inline">SPEC_0{idx + 1} //</span>
                     <ArrowUpRight className="w-4.5 h-4.5" />
                   </div>
@@ -132,7 +132,7 @@ export function Projects() {
                     <span className="font-mono text-[10px] text-[#F27D26] font-bold tracking-widest block mb-1.5 uppercase">
                       {project.category}
                     </span>
-                    <h3 className="text-lg font-sans font-extrabold text-white tracking-tight leading-snug mb-3 group-hover:text-[#F27D26] transition-colors line-clamp-2 md:min-h-[56px]">
+                    <h3 className="text-lg font-sans font-extrabold text-white tracking-tight leading-snug mb-3 group-hover:text-slate-400 transition-colors line-clamp-2 md:min-h-[56px]">
                       {project.title}
                     </h3>
                     <p className="text-zinc-400 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-6">
@@ -151,7 +151,7 @@ export function Projects() {
                       </span>
                     ))}
                     {project.tags.length > 3 && (
-                      <span className="px-2 py-0.5 rounded bg-gradient-to-r from-amber-600/10 to-[#F27D26]/10 border border-[#F27D26]/10 text-[#F27D26] text-[10px] font-mono font-medium">
+                      <span className="px-2 py-0.5 rounded bg-gradient-to-r from-gray-600/10 to-slate-500/10 border border-slate-500/10 text-slate-400 text-[10px] font-mono font-medium">
                         +{project.tags.length - 3}
                       </span>
                     )}
@@ -315,7 +315,7 @@ export function Projects() {
                             href={selectedProject.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 py-3 px-4 rounded-xl bg-[#F27D26] hover:bg-[#F27D26]/90 text-black font-extrabold text-sm flex items-center justify-center gap-2 tracking-wide block transition-all duration-300"
+                            className="flex-1 py-3 px-4 rounded-xl bg-slate-500 hover:bg-slate-600 text-white font-extrabold text-sm flex items-center justify-center gap-2 tracking-wide block transition-all duration-300"
                           >
                             Live Demo <ExternalLink className="w-4 h-4" />
                           </a>

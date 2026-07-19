@@ -76,7 +76,7 @@ export function CustomCursor() {
       {/* Outer follow ring */}
       <motion.div
         id="custom-cursor-ring"
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-amber-500/60 pointer-events-none z-50 mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-slate-500/60 pointer-events-none z-50 mix-blend-difference hidden md:block"
         style={{
           x: cursorX,
           y: cursorY,

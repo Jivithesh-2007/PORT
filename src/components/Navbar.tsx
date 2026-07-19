@@ -18,6 +18,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
     { label: 'Skills', id: 'skills' },
     { label: 'Projects', id: 'projects' },
     { label: 'Timeline', id: 'experience' },
+    { label: 'Certifications', id: 'certifications' },
     { label: 'Contact', id: 'contact' },
   ];
 
@@ -96,9 +97,9 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
           onClick={() => scrollToSection('hero')}
           className="text-lg font-bold font-mono tracking-wider flex items-center gap-2 group cursor-pointer"
         >
-          <span className="w-2.5 h-2.5 bg-[#F27D26] rounded-full animate-pulse" />
+          <span className="w-2.5 h-2.5 bg-[slate-500] rounded-full animate-pulse" />
           <span className="text-white transition-colors duration-300">
-            JIVITHESH<span className="text-[#F27D26]">.</span>DEV
+            JIVITHESH<span className="text-[slate-500]">.</span>DEV
           </span>
         </button>
 
@@ -112,7 +113,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
                   onClick={() => scrollToSection(item.id)}
                   className={`relative px-1.5 py-1 text-sm font-medium tracking-wide transition-colors duration-300 cursor-pointer ${
                     activeSection === item.id
-                      ? 'text-[#F27D26] font-semibold'
+                      ? 'text-[slate-500] font-semibold'
                       : 'text-[#A1A1AA] hover:text-white'
                   }`}
                 >
@@ -120,7 +121,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
                   {activeSection === item.id && (
                     <motion.span
                       layoutId="activeNavLine"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#F27D26] rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[slate-500] rounded-full"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -139,9 +140,9 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
             aria-label="Toggle theme"
           >
             {isDark ? (
-              <Sun className="w-4 h-4 text-amber-400" />
+              <Sun className="w-4 h-4 text-slate-400" />
             ) : (
-              <Moon className="w-4 h-4 text-amber-500" />
+              <Moon className="w-4 h-4 text-slate-500" />
             )}
           </button>
         </nav>
@@ -155,9 +156,9 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
             aria-label="Toggle theme"
           >
             {isDark ? (
-              <Sun className="w-4 h-4 text-amber-400" />
+              <Sun className="w-4 h-4 text-slate-400" />
             ) : (
-              <Moon className="w-4 h-4 text-amber-500" />
+              <Moon className="w-4 h-4 text-slate-500" />
             )}
           </button>
 
@@ -192,13 +193,13 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
                       onClick={() => scrollToSection(item.id)}
                       className={`w-full text-left py-2 text-base font-semibold transition-colors duration-300 cursor-pointer flex items-center justify-between ${
                         activeSection === item.id
-                          ? 'text-[#F27D26]'
+                          ? 'text-[slate-500]'
                           : 'text-slate-300 hover:text-white'
                       }`}
                     >
                       <span>{item.label}</span>
                       {activeSection === item.id && (
-                        <span className="w-1.5 h-1.5 bg-[#F27D26] rounded-full" />
+                        <span className="w-1.5 h-1.5 bg-[slate-500] rounded-full" />
                       )}
                     </button>
                   </li>

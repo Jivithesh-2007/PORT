@@ -4,10 +4,10 @@ import { personalInfo } from '../data';
 
 export function About() {
   const stats = [
-    { value: "9.32", label: "Academic Grade (CGPA)", icon: GraduationCap, color: "text-[#F27D26]" },
-    { value: "3+", label: "Completed Internships", icon: Briefcase, color: "text-amber-500" },
-    { value: "10+", label: "Innovative Projects", icon: Code, color: "text-orange-400" },
-    { value: "46", label: "Earned Credentials", icon: Award, color: "text-[#F27D26]" },
+    { value: "9.35", label: "Academic Grade (CGPA)", icon: GraduationCap, color: "text-slate-400" },
+    { value: "3+", label: "Completed Internships", icon: Briefcase, color: "text-slate-400" },
+    { value: "8+", label: "Personal Projects", icon: Code, color: "text-slate-400" },
+    { value: "2", label: "Years in CSE", icon: Award, color: "text-slate-400" },
   ];
 
   return (
@@ -26,23 +26,23 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-white mb-4"
           >
-            About <span className="text-[#F27D26]">Me</span>
+            About <span className="text-slate-400">Me</span>
           </motion.h2>
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="h-1 bg-[#F27D26] rounded-full mb-6"
+            className="h-1 bg-slate-500 rounded-full mb-6"
           />
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-sm font-mono tracking-widest text-[#F27D26] uppercase"
+            className="text-sm font-mono tracking-widest text-slate-400 uppercase"
           >
-            THE PHILOSOPHY BEHIND MY CRAFT
+            GETTING TO KNOW ME BETTER
           </motion.p>
         </div>
 
@@ -62,7 +62,7 @@ export function About() {
               {/* Outer decorative gradient border */}
               <div 
                 id="portrait-glow-border"
-                className="absolute inset-0 bg-gradient-to-tr from-[#F27D26] to-amber-600 opacity-65 rounded-3xl scale-102 group-hover:scale-105 transition-transform duration-500 blur-sm"
+                className="absolute inset-0 bg-gradient-to-tr from-slate-500 to-gray-600 opacity-65 rounded-3xl scale-102 group-hover:scale-105 transition-transform duration-500 blur-sm"
               />
               {/* Actual Image container */}
               <div id="portrait-img-frame" className="relative w-full h-full rounded-2xl overflow-hidden bg-[#121212]">
@@ -105,7 +105,7 @@ export function About() {
               transition={{ duration: 0.6 }}
               className="text-2xl sm:text-3xl font-serif font-extrabold text-white tracking-tight leading-tight"
             >
-              Full Stack Developer & <span className="text-[#F27D26] italic">Robotics Enthusiast</span>.
+              Full Stack Developer & <span className="text-slate-400 italic">Web Developer</span>.
             </motion.h3>
 
             <motion.p
@@ -115,7 +115,7 @@ export function About() {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="mt-6 text-zinc-300 leading-relaxed text-base font-sans"
             >
-              I am an undergraduate Computer Science and Engineering student at Karunya Institute of Technology & Sciences, motivated by a genuine passion for full-stack web applications, machine learning models, and building autonomous intelligent systems.
+              I am a 2nd-year Computer Science and Engineering student at Karunya Institute of Technology & Sciences, passionate about web development, programming, and learning new technologies through hands-on projects.
             </motion.p>
             
             <motion.p
@@ -125,7 +125,7 @@ export function About() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="mt-4 text-zinc-300 leading-relaxed text-base font-sans"
             >
-              Continuously building expertise in robust backend workflows, responsive interface designs, and low-level C programming. Striving to merge high-velocity computational power with fluid user experiences, bridging physical robotics intelligence with modern digital architectures.
+              Currently building my foundation in programming with languages like C and Python, exploring web development with HTML, CSS, and JavaScript. Always eager to learn and take on new challenges that help me grow as a developer.
             </motion.p>
 
             {/* Micro Stats Bento-style layout */}
@@ -140,7 +140,7 @@ export function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 * idx, duration: 0.5 }}
-                    className="p-5 rounded-2xl bg-[#121212] border border-white/5 hover:border-[#F27D26]/30 hover:shadow-2xl hover:shadow-[#F27D26]/5 transition-all duration-300 flex items-start gap-4 group"
+                    className="p-5 rounded-2xl bg-[#121212] border border-white/5 hover:border-slate-500/30 hover:shadow-2xl hover:shadow-slate-500/5 transition-all duration-300 flex items-start gap-4 group"
                   >
                     <div className={`p-2.5 rounded-xl bg-[#050505] border border-white/5 shadow-sm ${stat.color} group-hover:scale-110 transition-transform`}>
                       <IconComponent className="w-5 h-5" />

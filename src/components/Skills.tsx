@@ -18,7 +18,7 @@ export function Skills() {
       {/* Dynamic Background visual details */}
       <div 
         id="skills-linear-glow"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#F27D26]/5 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[slate-500]/5 rounded-full blur-3xl pointer-events-none"
       />
 
       <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
@@ -32,21 +32,21 @@ export function Skills() {
             transition={{ duration: 0.6 }}
             className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-white mb-4"
           >
-            Technical <span className="text-[#F27D26]">Inventory</span>
+            Technical <span className="text-[slate-500]">Inventory</span>
           </motion.h2>
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="h-1 bg-[#F27D26] rounded-full mb-6"
+            className="h-1 bg-[slate-500] rounded-full mb-6"
           />
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-sm font-mono tracking-widest text-[#F27D26] uppercase"
+            className="text-sm font-mono tracking-widest text-[slate-500] uppercase"
           >
             Capabilities and proficiencies
           </motion.p>
@@ -62,14 +62,14 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 * groupIdx, duration: 0.6 }}
-              className="p-8 rounded-3xl bg-[#121212] border border-white/5 hover:border-[#F27D26]/20 transition-all duration-300 relative group flex flex-col h-full"
+              className="p-8 rounded-3xl bg-[#121212] border border-white/5 hover:border-[slate-500]/20 transition-all duration-300 relative group flex flex-col h-full"
             >
               {/* Box Top Glow Bar of groups */}
-              <div id="skill-glow-indicator" className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-[#F27D26] to-amber-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center rounded-b-full" />
+              <div id="skill-glow-indicator" className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-[slate-500] to-slate-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center rounded-b-full" />
               
               {/* Category Header */}
               <div className="mb-8">
-                <span className="font-mono text-[10px] text-[#F27D26] font-bold tracking-wider uppercase block mb-1">
+                <span className="font-mono text-[10px] text-[slate-500] font-bold tracking-wider uppercase block mb-1">
                   MODULE {groupIdx + 1}
                 </span>
                 <h3 className="text-lg font-sans font-bold text-white tracking-tight">
@@ -91,14 +91,14 @@ export function Skills() {
                       <div className="flex items-center justify-between mb-2 font-sans">
                         <div className="flex items-center gap-2.5 font-sans">
                           {/* Glow background around icon */}
-                          <div id={`skill-icon-glow-${groupIdx}-${skillIdx}`} className="p-2 rounded-lg bg-[#1a1a1a] text-[#F27D26] border border-white/5 group-hover/skill:bg-[#F27D26] group-hover/skill:text-black group-hover/skill:border-transparent transition-all duration-300">
+                          <div id={`skill-icon-glow-${groupIdx}-${skillIdx}`} className="p-2 rounded-lg bg-[#1a1a1a] text-[slate-500] border border-white/5 group-hover/skill:bg-[slate-500] group-hover/skill:text-black group-hover/skill:border-transparent transition-all duration-300">
                             <IconComp className="w-4 h-4" />
                           </div>
                           <span className="text-sm font-semibold text-zinc-300 group-hover/skill:text-white transition-colors">
                             {skill.name}
                           </span>
                         </div>
-                        <span className="text-xs font-mono font-semibold text-[#F27D26]">
+                        <span className="text-xs font-mono font-semibold text-[slate-500]">
                           {skill.level}%
                         </span>
                       </div>
@@ -110,7 +110,7 @@ export function Skills() {
                         
                         <motion.div
                           id={`skill-loading-bar-${groupIdx}-${skillIdx}`}
-                          className="h-full bg-gradient-to-r from-[#F27D26] to-amber-500 rounded-full"
+                          className="h-full bg-gradient-to-r from-[slate-500] to-slate-500 rounded-full"
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
                           viewport={{ once: true }}
@@ -138,7 +138,7 @@ export function Skills() {
               whileHover={{ 
                 scale: 1.06, 
                 backgroundColor: 'rgba(242, 125, 38, 0.12)',
-                borderColor: '#F27D26'
+                borderColor: 'slate-500'
               }}
               className="px-4 py-2 rounded-xl text-xs font-mono font-medium text-zinc-400 border border-white/5 bg-[#121212] backdrop-blur-sm cursor-default transition-all duration-300"
             >

@@ -9,10 +9,10 @@ export function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const roles = [
-    "Full-Stack Architect",
-    "Creative Technologist",
-    "UX/UI Craftsperson",
-    "Open-Source Contributor"
+    "Computer Science Student",
+    "Web Developer",
+    "Programming Enthusiast",
+    "Problem Solver"
   ];
 
   // Typing effect loop
@@ -74,12 +74,12 @@ export function Hero() {
       <motion.div
         id="hero-orb-1"
         style={{ y: orbY1 }}
-        className="absolute top-1/4 left-1/12 w-72 h-72 md:w-[400px] md:h-[400px] rounded-full bg-[#F27D26]/10 blur-3xl pointer-events-none"
+        className="absolute top-1/4 left-1/12 w-72 h-72 md:w-[400px] md:h-[400px] rounded-full bg-slate-500/10 blur-3xl pointer-events-none"
       />
       <motion.div
         id="hero-orb-2"
         style={{ y: orbY2 }}
-        className="absolute bottom-1/3 right-1/12 w-80 h-80 md:w-[450px] md:h-[450px] rounded-full bg-amber-600/8 blur-3xl pointer-events-none"
+        className="absolute bottom-1/3 right-1/12 w-80 h-80 md:w-[450px] md:h-[450px] rounded-full bg-gray-600/8 blur-3xl pointer-events-none"
       />
 
       {/* Hero Core Content Layout */}
@@ -97,10 +97,10 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#121212] border border-[#F27D26]/20 text-[#F27D26] text-xs font-mono font-semibold tracking-wider mb-8 shadow-sm"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#121212] border border-slate-500/20 text-slate-400 text-xs font-mono font-semibold tracking-wider mb-8 shadow-sm"
         >
           <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping" />
-          AVAILABLE FOR GLOBAL OPPORTUNITIES
+          OPEN TO OPPORTUNITIES
         </motion.div>
 
         {/* Display Typography Title */}
@@ -108,13 +108,13 @@ export function Hero() {
           id="hero-title"
           className="text-4xl sm:text-6xl md:text-7xl font-serif font-black tracking-tight text-white leading-[1.12] mb-6"
         >
-          Hi, I am <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F27D26] via-amber-400 to-[#F27D26]">{personalInfo.name}</span>
+          Hi, I am <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-gray-500 to-slate-400">{personalInfo.name}</span>
         </h1>
 
         {/* Dynamic Typing Subtitle */}
         <div id="hero-tagline-container" className="h-10 sm:h-12 flex items-center justify-center mb-8">
           <p className="text-xl sm:text-2xl font-mono font-medium text-slate-300">
-            I am a <span className="text-[#F27D26] border-r-2 border-[#F27D26] animate-pulse pr-0.5">{typedTitle}</span>
+            I am a <span className="text-slate-400 border-r-2 border-slate-400 animate-pulse pr-0.5">{typedTitle}</span>
           </p>
         </div>
 
@@ -131,9 +131,9 @@ export function Hero() {
           <button
             id="hero-cta-projects"
             onClick={() => scrollToSelector('projects')}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#F27D26] hover:bg-[#F27D26]/90 text-black font-extrabold flex items-center justify-center gap-2 group shadow-lg shadow-[#F27D26]/10 transition-all duration-300 cursor-pointer text-sm tracking-wide"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-500 hover:bg-slate-600 text-white font-extrabold flex items-center justify-center gap-2 group shadow-lg shadow-slate-500/10 transition-all duration-300 cursor-pointer text-sm tracking-wide"
           >
-            Explore My Work
+            View My Projects
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
           

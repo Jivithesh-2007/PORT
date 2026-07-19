@@ -15,12 +15,10 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ParticleBackground } from './components/ParticleBackground';
 import { CustomCursor } from './components/CustomCursor';
-import { WelcomeIntro } from './components/WelcomeIntro';
-import { AnimatePresence, motion } from 'motion/react';
+import { motion } from 'motion/react';
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
-  const [introCompleted, setIntroCompleted] = useState(false);
 
   // Initialize theme from storage or preferences on mount
   useEffect(() => {
@@ -49,22 +47,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#050505] text-white font-sans selection:bg-[#F27D26] selection:text-black overflow-hidden transition-colors duration-1000">
-      {/* Absolute gatekeeper welcome controller loader */}
-      <AnimatePresence mode="wait">
-        {!introCompleted && (
-          <motion.div
-            key="welcome-gate"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0, y: -40, filter: 'blur(10px)' }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[100]"
-          >
-            <WelcomeIntro onComplete={() => setIntroCompleted(true)} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
+    <div className="relative min-h-screen bg-[#050505] text-white font-sans selection:bg-slate-500 selection:text-white transition-colors duration-1000">
       {/* Precision custom interactive mouse cursor */}
       <CustomCursor />
 
@@ -76,11 +59,11 @@ export default function App() {
         id="app-root-frame" 
         className="relative z-10 flex flex-col min-h-screen"
         initial={{ opacity: 0, scale: 0.98, filter: 'blur(8px)' }}
-        animate={introCompleted ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : {}}
-        transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
+        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         {/* Sticky menu heading */}
-        {introCompleted && <Navbar isDark={isDark} toggleTheme={toggleTheme} />}
+        <Navbar isDark={isDark} toggleTheme={toggleTheme} />
 
         {/* Modular portfolio view sections list */}
         <main className="flex-1">

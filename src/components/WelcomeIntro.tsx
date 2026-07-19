@@ -227,7 +227,7 @@ export function WelcomeIntro({ onComplete }: WelcomeIntroProps) {
             {/* Glowing linear progress track */}
             <div className="w-64 sm:w-80 h-1.5 bg-zinc-900/60 border border-white/5 rounded-full overflow-hidden mb-5 relative shadow-[inner_0px_1px_4px_black]">
               <motion.div 
-                className="h-full bg-gradient-to-r from-amber-600 via-[#F27D26] to-amber-400 rounded-full shadow-[0_0_12px_#F27D26]"
+                className="h-full bg-gradient-to-r from-gray-600 via-[#F27D26] to-slate-400 rounded-full shadow-[0_0_12px_#F27D26]"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -259,7 +259,7 @@ export function WelcomeIntro({ onComplete }: WelcomeIntroProps) {
                 <button
                   id="bypass-decryption-btn"
                   onClick={fastForward}
-                  className="pointer-events-auto mt-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#111111] to-[#161616] hover:from-[#F27D26] hover:to-amber-500 text-zinc-400 hover:text-black border border-white/10 hover:border-[#F27D26]/20 font-mono text-[10px] font-bold tracking-widest uppercase shadow-lg transition-all duration-300 hover:scale-[1.03] cursor-pointer"
+                  className="pointer-events-auto mt-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#111111] to-[#161616] hover:from-[#F27D26] hover:to-slate-500 text-zinc-400 hover:text-black border border-white/10 hover:border-[#F27D26]/20 font-mono text-[10px] font-bold tracking-widest uppercase shadow-lg transition-all duration-300 hover:scale-[1.03] cursor-pointer"
                 >
                   <Zap className="w-3.5 h-3.5" />
                   Fast-Forward Loader
