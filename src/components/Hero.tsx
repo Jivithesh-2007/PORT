@@ -62,12 +62,12 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 md:px-12 bg-[#050505] transition-colors duration-1000 pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 md:px-12 bg-[#050505] dark:bg-[#050505] light:bg-[#F9FAFB] transition-colors duration-1000 pt-20"
     >
       {/* Decorative Grid SVG background */}
       <div 
         id="hero-grid-pattern"
-        className="absolute inset-0 bg-[radial-gradient(rgba(242,125,38,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
+        className="absolute inset-0 dark:bg-[radial-gradient(rgba(242,125,38,0.06)_1px,transparent_1px)] light:bg-[radial-gradient(rgba(107,114,128,0.08)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
       />
 
       {/* Floating Gradient Orbs */}
@@ -106,22 +106,22 @@ export function Hero() {
         {/* Display Typography Title */}
         <h1 
           id="hero-title"
-          className="text-4xl sm:text-6xl md:text-7xl font-serif font-black tracking-tight text-white leading-[1.12] mb-6"
+          className="text-4xl sm:text-6xl md:text-7xl font-serif font-black tracking-tight dark:text-white light:text-[#111827] leading-[1.12] mb-6"
         >
-          Hi, I am <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-gray-500 to-slate-400">{personalInfo.name}</span>
+          Hi, I am <span className="text-transparent bg-clip-text dark:bg-gradient-to-r dark:from-slate-400 dark:via-gray-500 dark:to-slate-400 light:bg-gradient-to-r light:from-gray-700 light:via-gray-600 light:to-gray-700">{personalInfo.name}</span>
         </h1>
 
         {/* Dynamic Typing Subtitle */}
         <div id="hero-tagline-container" className="h-10 sm:h-12 flex items-center justify-center mb-8">
-          <p className="text-xl sm:text-2xl font-mono font-medium text-slate-300">
-            I am a <span className="text-slate-400 border-r-2 border-slate-400 animate-pulse pr-0.5">{typedTitle}</span>
+          <p className="text-xl sm:text-2xl font-mono font-medium dark:text-slate-300 light:text-gray-700">
+            I am a <span className="dark:text-slate-400 light:text-gray-600 border-r-2 dark:border-slate-400 light:border-gray-600 animate-pulse pr-0.5">{typedTitle}</span>
           </p>
         </div>
 
         {/* Narrative Description Statement */}
         <p 
           id="hero-intro-bio"
-          className="max-w-2xl text-base sm:text-lg text-[#A1A1AA] leading-relaxed font-sans mb-12 text-center"
+          className="max-w-2xl text-base sm:text-lg dark:text-[#A1A1AA] light:text-[#6B7280] leading-relaxed font-sans mb-12 text-center"
         >
           {personalInfo.tagline} {personalInfo.bio}
         </p>
@@ -131,7 +131,7 @@ export function Hero() {
           <button
             id="hero-cta-projects"
             onClick={() => scrollToSelector('projects')}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-500 hover:bg-slate-600 text-white font-extrabold flex items-center justify-center gap-2 group shadow-lg shadow-slate-500/10 transition-all duration-300 cursor-pointer text-sm tracking-wide"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl dark:bg-slate-500 dark:hover:bg-slate-600 light:bg-gray-700 light:hover:bg-gray-800 dark:text-white light:text-white font-extrabold flex items-center justify-center gap-2 group shadow-lg dark:shadow-slate-500/10 light:shadow-gray-700/10 transition-all duration-300 cursor-pointer text-sm tracking-wide"
           >
             View My Projects
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

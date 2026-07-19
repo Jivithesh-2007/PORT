@@ -7,6 +7,7 @@ import { Project } from '../types';
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState('All');
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   // Filter categories helper
   const filterCategories = ['All', 'Fullstack', 'AI & Robotics', 'Frontend'];
@@ -29,10 +30,12 @@ export function Projects() {
     return true;
   });
 
+  const displayedProjects = showAllProjects ? filteredProjects : filteredProjects.slice(0, 4);
+
   return (
     <section
       id="projects"
-      className="relative py-24 sm:py-32 px-6 md:px-12 bg-[#050505] border-t border-white/5 transition-colors duration-1000"
+      className="relative py-24 sm:py-32 px-6 md:px-12 dark:bg-[#050505] light:bg-[#F9FAFB] dark:border-white/5 light:border-black/5 border-t transition-colors duration-1000"
     >
       <div className="max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24">
         
@@ -43,9 +46,9 @@ export function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-white mb-4"
+            className="text-3xl sm:text-4xl font-serif font-bold tracking-tight dark:text-white light:text-[#111827] mb-4"
           >
-            My <span className="text-slate-400">Projects</span>
+            My <span className="dark:text-slate-400 light:text-[#9CA3AF]">Projects</span>
           </motion.h2>
           <motion.div
             initial={{ width: 0 }}
@@ -59,7 +62,7 @@ export function Projects() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-sm font-mono tracking-widest text-slate-400 uppercase"
+            className="text-sm font-mono tracking-widest dark:text-slate-400 light:text-[#9CA3AF] uppercase"
           >
             BUILT WITH PASSION AND DEDICATION
           </motion.p>
@@ -74,8 +77,8 @@ export function Projects() {
               onClick={() => setActiveFilter(cat)}
               className={`px-5 py-2.5 rounded-full text-xs font-mono font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
                 activeFilter === cat
-                  ? 'bg-slate-500 text-white font-extrabold shadow-md shadow-slate-500/20'
-                  : 'bg-[#121212] text-[#A1A1AA] hover:text-white border border-white/5'
+                  ? 'dark:bg-slate-500 light:bg-gray-700 text-white font-extrabold shadow-md dark:shadow-slate-500/20 light:shadow-gray-700/20'
+                  : 'dark:bg-[#121212] light:bg-white dark:text-[#A1A1AA] light:text-[#6B7280] dark:hover:text-white light:hover:text-[#111827] dark:border-white/5 light:border-black/10 border'
               }`}
             >
               {cat.toUpperCase()}
@@ -90,7 +93,7 @@ export function Projects() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout text-sans">
-            {filteredProjects.map((project, idx) => (
+            {displayedProjects.map((project, idx) => (
               <motion.div
                 layout
                 key={project.id}
@@ -104,12 +107,12 @@ export function Projects() {
                   y: -5,
                   boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
                 }}
-                className="p-8 rounded-3xl bg-[#0d0d0d] border border-white/5 relative group flex flex-col justify-between transition-all duration-300 hover:border-slate-500/25 cursor-pointer h-full"
+                className="p-8 rounded-3xl dark:bg-[#0d0d0d] light:bg-white dark:border-white/5 light:border-black/10 relative group flex flex-col justify-between transition-all duration-300 dark:hover:border-slate-500/25 light:hover:border-gray-400/30 cursor-pointer h-full"
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Micro bento style header top row */}
                 <div className="flex items-start justify-between mb-8">
-                  <div className="p-3 rounded-2xl bg-[#050505] border border-white/5 shadow-sm text-slate-400 group-hover:scale-110 group-hover:text-white group-hover:bg-slate-500 transition-all duration-300">
+                  <div className="p-3 rounded-2xl dark:bg-[#050505] light:bg-gray-100 dark:border-white/5 light:border-black/10 shadow-sm dark:text-slate-400 light:text-gray-600 group-hover:scale-110 dark:group-hover:text-white light:group-hover:text-[#111827] dark:group-hover:bg-slate-500 light:group-hover:bg-gray-700 transition-all duration-300">
                     {project.category.toLowerCase().includes('robot') || project.category.toLowerCase().includes('ai') ? (
                       <Cpu className="w-5 h-5" />
                     ) : project.category.toLowerCase().includes('fullstack') ? (
@@ -120,7 +123,7 @@ export function Projects() {
                       <Terminal className="w-5 h-5" />
                     )}
                   </div>
-                  <div className="flex items-center gap-1 text-zinc-500 group-hover:text-slate-400 transition-colors">
+                  <div className="flex items-center gap-1 dark:text-zinc-500 light:text-gray-500 dark:group-hover:text-slate-400 light:group-hover:text-gray-700 transition-colors">
                     <span className="font-mono text-[9px] tracking-widest font-bold uppercase hidden sm:inline">SPEC_0{idx + 1} //</span>
                     <ArrowUpRight className="w-4.5 h-4.5" />
                   </div>
@@ -132,26 +135,26 @@ export function Projects() {
                     <span className="font-mono text-[10px] text-[#F27D26] font-bold tracking-widest block mb-1.5 uppercase">
                       {project.category}
                     </span>
-                    <h3 className="text-lg font-sans font-extrabold text-white tracking-tight leading-snug mb-3 group-hover:text-slate-400 transition-colors line-clamp-2 md:min-h-[56px]">
+                    <h3 className="text-lg font-sans font-extrabold dark:text-white light:text-[#111827] tracking-tight leading-snug mb-3 dark:group-hover:text-slate-400 light:group-hover:text-gray-700 transition-colors line-clamp-2 md:min-h-[56px]">
                       {project.title}
                     </h3>
-                    <p className="text-zinc-400 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-6">
+                    <p className="dark:text-zinc-400 light:text-gray-600 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-6">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Tech specs tag strip */}
-                  <div className="mt-4 pt-4 border-t border-white/10 flex flex-wrap gap-1.5 overflow-hidden">
+                  <div className="mt-4 pt-4 dark:border-white/10 light:border-black/10 border-t flex flex-wrap gap-1.5 overflow-hidden">
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 rounded bg-white/[0.02] border border-white/5 text-[10px] font-mono text-zinc-400"
+                        className="px-2 py-0.5 rounded dark:bg-white/[0.02] light:bg-black/[0.03] dark:border-white/5 light:border-black/10 border text-[10px] font-mono dark:text-zinc-400 light:text-gray-600"
                       >
                         {tag}
                       </span>
                     ))}
                     {project.tags.length > 3 && (
-                      <span className="px-2 py-0.5 rounded bg-gradient-to-r from-gray-600/10 to-slate-500/10 border border-slate-500/10 text-slate-400 text-[10px] font-mono font-medium">
+                      <span className="px-2 py-0.5 rounded dark:bg-gradient-to-r dark:from-gray-600/10 dark:to-slate-500/10 light:bg-gradient-to-r light:from-gray-200 light:to-gray-300 dark:border-slate-500/10 light:border-gray-400/20 border dark:text-slate-400 light:text-gray-600 text-[10px] font-mono font-medium">
                         +{project.tags.length - 3}
                       </span>
                     )}
@@ -161,6 +164,40 @@ export function Projects() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* View More Button */}
+        {!showAllProjects && filteredProjects.length > 4 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="flex justify-center mt-16"
+          >
+            <button
+              onClick={() => setShowAllProjects(true)}
+              className="px-8 py-3.5 rounded-xl dark:bg-slate-500 dark:hover:bg-slate-600 light:bg-gray-700 light:hover:bg-gray-800 text-white font-bold text-sm flex items-center gap-2 tracking-wide transition-all duration-300 dark:shadow-lg dark:shadow-slate-500/20 light:shadow-lg light:shadow-gray-700/20 dark:hover:dark:shadow-slate-500/40 light:hover:light:shadow-gray-700/40"
+            >
+              View All Projects <ArrowRight className="w-4 h-4" />
+            </button>
+          </motion.div>
+        )}
+
+        {/* View Less Button */}
+        {showAllProjects && filteredProjects.length > 4 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="flex justify-center mt-16"
+          >
+            <button
+              onClick={() => setShowAllProjects(false)}
+              className="px-8 py-3.5 rounded-xl dark:bg-slate-500/20 dark:hover:bg-slate-500/30 light:bg-gray-200 light:hover:bg-gray-300 dark:text-slate-300 light:text-gray-700 font-bold text-sm flex items-center gap-2 tracking-wide transition-all duration-300 dark:border-slate-500/30 light:border-gray-400/30 border"
+            >
+              Show Less <ArrowRight className="w-4 h-4 rotate-180" />
+            </button>
+          </motion.div>
+        )}
 
         {/* Modal Popup Panel overlay */}
         <AnimatePresence>
@@ -173,7 +210,7 @@ export function Projects() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-black/85 backdrop-blur-md"
+                className="absolute inset-0 dark:bg-black/85 light:bg-black/40 backdrop-blur-md"
                 onClick={() => setSelectedProject(null)}
               />
 
@@ -184,13 +221,13 @@ export function Projects() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 30 }}
                 transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-                className="relative w-full max-w-3xl max-h-[85vh] bg-[#0c0c0c] rounded-3xl shadow-2xl overflow-y-auto border border-white/10 z-10"
+                className="relative w-full max-w-3xl max-h-[85vh] dark:bg-[#0c0c0c] light:bg-white rounded-3xl shadow-2xl overflow-y-auto dark:border-white/10 light:border-black/10 border z-10"
               >
                 {/* Top Action controls */}
                 <div id="modal-close-tray" className="absolute top-5 right-5 z-20">
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="p-2.5 rounded-full bg-[#121212] hover:bg-white/10 text-white transition-colors cursor-pointer"
+                    className="p-2.5 rounded-full dark:bg-[#121212] light:bg-gray-200 dark:hover:bg-white/10 light:hover:bg-gray-300 dark:text-white light:text-[#111827] transition-colors cursor-pointer"
                     aria-label="Close modal"
                   >
                     <X className="w-5 h-5" />

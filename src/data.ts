@@ -60,7 +60,31 @@ export const skillGroups: SkillGroup[] = [
   }
 ];
 
+// Add Echoverge project before the other projects
+export const echovergeProject: Project = {
+  id: "echoverge",
+  title: "Echoverge - AI-Driven Real-Time Distress Intelligence",
+  category: "AI & Robotics",
+  description: "Production-ready SaaS platform for real-time emotional stress detection using advanced acoustic analysis and emergency response systems.",
+  detailedDescription: "Echoverge is a cutting-edge SaaS platform that leverages advanced AI and acoustic analysis to detect emotional distress in real-time through voice monitoring. Built with a privacy-first architecture and ethical AI principles, it provides automatic emergency response capabilities including SMS notifications, location sharing, and audio recording. The platform integrates Google Maps for location services and includes comprehensive emergency contact management supporting up to 5 contacts. Stress probability is scored on a 0-100 scale with three distinct risk levels (Low, Moderate, High), enabling immediate intervention when needed.",
+  tags: ["AI", "ML", "Audio Processing", "Voice Analysis", "SaaS", "Emergency Response", "Women's Safety", "Privacy-First", "Real-Time Analysis", "Google Maps API"],
+  image: "",
+  liveUrl: "",
+  githubUrl: "#",
+  keyFeatures: [
+    "Real-Time Voice Monitoring with low-latency processing",
+    "Acoustic Feature Extraction using advanced signal processing",
+    "Stress Probability Scoring (0-100 scale) with 3 risk levels (Low, Moderate, High)",
+    "Emergency Contact Management supporting up to 5 emergency contacts",
+    "Automatic Emergency Response (SMS, Location Sharing, Audio Recording)",
+    "Google Maps Integration for precise location services",
+    "Privacy-First Architecture with local storage and no cloud data transmission",
+    "Ethical AI implementation trained on RAVDESS and SAVEE datasets"
+  ]
+};
+
 export const projects: Project[] = [
+  echovergeProject,
   {
     id: "quiz-app",
     title: "Interactive Quiz Application",

@@ -26,9 +26,11 @@ export default function App() {
     if (savedTheme === 'light') {
       setIsDark(false);
       document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
     } else {
       setIsDark(true);
       document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
     }
   }, []);
 
@@ -37,8 +39,10 @@ export default function App() {
       const next = !prev;
       if (next) {
         document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
         localStorage.setItem('portfolio-theme', 'dark');
       } else {
+        document.documentElement.classList.add('light');
         document.documentElement.classList.remove('dark');
         localStorage.setItem('portfolio-theme', 'light');
       }
@@ -47,7 +51,11 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#050505] text-white font-sans selection:bg-slate-500 selection:text-white transition-colors duration-1000">
+    <div className={`relative min-h-screen transition-colors duration-1000 ${
+      isDark 
+        ? 'bg-[#050505] text-white' 
+        : 'bg-[#F9FAFB] text-[#111827]'
+    } font-sans selection:bg-gray-400 selection:text-white`}>
       {/* Precision custom interactive mouse cursor */}
       <CustomCursor />
 
